@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker Classic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Brick Breaker</h1>
+        <div class="stats">
+            <span>목숨: <span id="lives">3</span></span>
+        </div>
+        <div class="game-view-wrapper">
+            <canvas id="gameCanvas" width="640" height="480"></canvas>
+            <!-- 보스 인트로 오버레이 -->
+            <div id="bossIntro" class="boss-intro-overlay">
+                <div class="intro-content">
+                    <img id="introImg" src="images/intro.png" alt="Boss Cutscene">
+                    <div class="intro-hint">Press Any Key</div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <p>화살표 키로 패들을 움직여 공을 받아내세요!</p>
+            <button id="startBtn">게임 시작</button>
+            <button id="skipBtn" class="secondary-btn">스킵 (테스트용)</button>
+            <button id="killBossBtn" class="secondary-btn">보스 피1 (테스트용)</button>
+        </div>
+    </div>
+    <!-- 모달 (Alert 대체용) -->
+    <div id="gameModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modalTitle">게임 알림</h2>
+            <p id="modalMessage">여기에 메시지가 표시됩니다.</p>
+            <button id="modalBtn">확인</button>
+        </div>
+    </div>
+
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #e94560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    text-align: center;
+    background: #16213e;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #0f3460;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #00d2ff;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    gap: 20px;
+}
+
+.game-view-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+canvas {
+    background: #000;
+    display: block;
+    /* margin: 0 auto; 제거 - wrapper가 중앙 정렬 관리 */
+    border: 3px solid #e94560;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);
+}
+
+.controls {
+    margin-top: 1.5rem;
+}
+
+.controls p {
+    color: #95a5a6;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ff2e63;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.secondary-btn {
+    background: #444;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 20px;
+    color: #ccc;
+}
+
+.secondary-btn:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+/* 모달창 스타일 */
+.modal-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #16213e;
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #e94560;
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: modalAppear 0.3s forwards ease-out;
+}
+
+@keyframes modalAppear {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#modalTitle {
+    color: #00d2ff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+#modalMessage {
+    color: #eee;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+#modalBtn {
+    background: #00d2ff;
+    color: #1a1a2e;
+    min-width: 120px;
+}
+
+#modalBtn:hover {
+    background: #33e0ff;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+
+/* 보스 인트로 오버레이 스타일 */
+.boss-intro-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 3px; /* 캔버스 보더 위치에 맞춤 */
+    left: 3px;
+    width: 640px;
+    height: 480px;
+    background-color: #000;
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px; /* 캔버스의 곡률과 동일하게 설정 */
+}
+
+.intro-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.intro-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out; /* 부드러운 전환 효과 */
+}
+
+.intro-hint {
+    position: absolute;
+    bottom: 50px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: breathing 2s infinite ease-in-out;
+}
+
+@keyframes breathing {
+    0%, 100% { opacity: 0.3; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
